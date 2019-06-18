@@ -62,6 +62,22 @@ public class Array {
         size++;
     }
 
+    // 获取 index 索引位置的元素
+    int get(int index){
+        if(index < 0 || index >= size){
+            throw new IllegalArgumentException("Get failed. Index is illegal");
+        }
+        return data[index];
+    }
+
+    // 修改 index 索引位置的元素
+    void set(int index, int e){
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Get failed. Index is illegal");
+        }
+        data[index] = e;
+    }
+
     @Override
     public String toString(){
         StringBuilder result = new StringBuilder();
