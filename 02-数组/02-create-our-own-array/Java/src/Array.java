@@ -78,6 +78,51 @@ public class Array {
         data[index] = e;
     }
 
+    // 判断数组中是否存在元素e
+    public boolean contains(int e){
+        for (int t: data) {
+            if(t == e) return true;
+        }
+        return false;
+    }
+
+    // 在数组中查找元素e，如果元素e不存在则返回-1
+    public int find(int e){
+        for (int i = 0; i < size; i++) {
+            if(data[i]==e) return i;
+        }
+        return -1;
+    }
+
+    // 从数组中删除 index 索引位置的元素，并返回删除的元素
+    public int remove(int index){
+        if(index < 0 || index >=size){
+            throw new IllegalArgumentException("Remove failed. Invaild index.");
+        }
+        int ret = data[index];
+        for(int i=index+1; i<size; i++){
+            data[i-1] = data[i]; 
+        }
+        size--;
+        return ret;
+    }
+
+    // 删除数组的第一个元素
+    public int removeFirst(){
+        return remove(0);
+    }
+
+    // 删除数组中最后一个元素
+    public int removeLast(){
+        return remove(size-1);
+    }
+
+    // 从数组中删除元素e
+    public void removeElement(int e){
+        int index = find(e);
+        if(index != -1) remove(index);
+    }
+
     @Override
     public String toString(){
         StringBuilder result = new StringBuilder();
