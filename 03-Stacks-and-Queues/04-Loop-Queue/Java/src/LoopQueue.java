@@ -70,7 +70,7 @@ public class LoopQueue<E> implements Queue<E> {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        result.append(String.format("Queue: size=%d , capacity=%d", size, getCapacity()));
+        result.append(String.format("Queue: size=%d , capacity=%d\n", size, getCapacity()));
         result.append("frort [");
         for (int i = front; i != tail; i = (i+1) % data.length) {
             result.append(data[i]);
@@ -78,6 +78,18 @@ public class LoopQueue<E> implements Queue<E> {
         }
         result.append("] tail");
         return result.toString();
+    }  
+    
+    public static void main(String[] args) {
+        LoopQueue<Integer> queue = new LoopQueue();
+        for (int i = 0; i < 10; i++) {
+            queue.enQueue(i);
+            System.out.println(queue);
 
+            if (i % 3 == 0) {
+                queue.deQueue();
+                System.out.println(queue);
+            }
+        }
     }
 }
