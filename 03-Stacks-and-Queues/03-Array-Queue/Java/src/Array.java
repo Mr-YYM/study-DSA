@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class Array<E> {
 
     private E[] data;
