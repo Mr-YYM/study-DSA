@@ -123,6 +123,33 @@ public class LinkedList<E> {
         return false;
     }
 
+    // 从链表中删除 index 位置的元素
+    public E remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Remove Failed. Invalid index.");
+        }
+
+        Node prev = dummyhead;
+        for (int i = 0; i < index; i++) {
+            prev = prev.next;
+        }
+
+        Node delNote = prev.next;
+        prev.next = delNote.next;
+        delNote.next = null;
+        size--;
+
+        return delNote.e;
+    }
+
+    public E removeFirst(){
+        return remove(0);
+    }
+
+    public E removeLast() {
+        return remove(size - 1);
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
