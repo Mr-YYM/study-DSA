@@ -1,12 +1,20 @@
 public class Main{
     public static void main(String[] args) {
         LinkedList<Integer> linkedlist = new LinkedList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             linkedlist.addFirst(i);
             System.out.println(linkedlist);
         }
 
         linkedlist.add(2, 666);
         System.out.println(linkedlist);
+
+        linkedlist.remove(2);
+        System.out.println(linkedlist);
+
+        linkedlist.removeFirst();
+        linkedlist.removeLast();
+        System.out.println(linkedlist);
+
     }
 }
